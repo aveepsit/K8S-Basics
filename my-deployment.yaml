@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mynginx-deployment
+  labels:
+    app: mynginx-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mynginx-deployment
+  template:
+    metadata:
+      labels:
+        app: mynginx-deployment
+    spec:
+      containers:
+      - name: myimage
+        image: myimage
+        imagePullPolicy: Never
